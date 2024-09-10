@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.5.55">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Manual de LaTeX - 8&nbsp; Fórmulas matemáticas</title>
+<title>8&nbsp; Fórmulas matemáticas – Manual de LaTeX</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -84,7 +84,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "Sin resultados",
     "search-matching-documents-text": "documentos encontrados",
@@ -93,26 +99,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "resultado adicional en este documento",
     "search-more-matches-text": "resultados adicionales en este documento",
     "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancelar",
     "search-submit-button-title": "Enviar",
     "search-label": "Buscar"
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<meta property="og:title" content="Manual de LaTeX - 8&nbsp; Fórmulas matemáticas">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<meta property="og:title" content="8&nbsp; Fórmulas matemáticas – Manual de LaTeX">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://aprendeconalf.es/img/formulas/entornos-matematicos.png">
-<meta property="og:site-name" content="Manual de LaTeX">
-<meta property="og:image:height" content="244">
-<meta property="og:image:width" content="807">
-<meta name="twitter:title" content="Manual de LaTeX - 8&nbsp; Fórmulas matemáticas">
+<meta property="og:image" content="https://aprendeconalf.es/img/logos/sticker.png">
+<meta property="og:site_name" content="Manual de LaTeX">
+<meta property="og:image:height" content="600">
+<meta property="og:image:width" content="518">
+<meta name="twitter:title" content="8&nbsp; Fórmulas matemáticas – Manual de LaTeX">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://aprendeconalf.es/img/formulas/entornos-matematicos.png">
-<meta name="twitter:image-height" content="244">
-<meta name="twitter:image-width" content="807">
+<meta name="twitter:image" content="https://aprendeconalf.es/img/logos/sticker.png">
+<meta name="twitter:image-height" content="600">
+<meta name="twitter:image-width" content="518">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -122,13 +156,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./formulas.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Fórmulas matemáticas</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./formulas.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Fórmulas matemáticas</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -137,7 +171,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="./index.html" class="sidebar-logo-link">
       <img src="./img/logos/aprendeconalf.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
@@ -145,36 +179,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Manual de LaTeX</a> 
         <div class="sidebar-tools-main tools-wide">
-    <a href="https://aprendeconalf.es" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-house-fill"></i></a>
+    <a href="https://aprendeconalf.es" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-house-fill"></i></a>
     <div class="dropdown">
-      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="./manual-latex.pdf">
-              <i class="bi bi-bi-file-pdf pe-1"></i>
+              <i class="bi bi-file-pdf pe-1"></i>
             Download PDF
             </a>
           </li>
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="./manual-latex.epub">
-              <i class="bi bi-bi-journal pe-1"></i>
+              <i class="bi bi-journal pe-1"></i>
             Download ePub
             </a>
           </li>
       </ul>
     </div>
     <div class="dropdown">
-      <a href="" title="Share" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-1">
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
-              <i class="bi bi-bi-twitter pe-1"></i>
+              <i class="bi bi-twitter pe-1"></i>
             Twitter
             </a>
           </li>
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
-              <i class="bi bi-bi-linkedin pe-1"></i>
+              <i class="bi bi-linkedin pe-1"></i>
             LinkedIn
             </a>
           </li>
@@ -278,7 +312,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -300,7 +334,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#subíndices-y-superíndices" id="toc-subíndices-y-superíndices" class="nav-link" data-scroll-target="#subíndices-y-superíndices"><span class="header-section-number">8.2</span> Subíndices y superíndices</a></li>
   <li><a href="#fracciones" id="toc-fracciones" class="nav-link" data-scroll-target="#fracciones"><span class="header-section-number">8.3</span> Fracciones</a></li>
-  <li><a href="#sumatorios-productorios-e-integrales" id="toc-sumatorios-productorios-e-integrales" class="nav-link" data-scroll-target="#sumatorios-productorios-e-integrales"><span class="header-section-number">8.4</span> Sumatorios, productorios e integrales</a></li>
+  <li><a href="#sumatorios-productorios-integrales-y-límites." id="toc-sumatorios-productorios-integrales-y-límites." class="nav-link" data-scroll-target="#sumatorios-productorios-integrales-y-límites."><span class="header-section-number">8.4</span> Sumatorios, productorios, integrales y límites.</a></li>
   <li><a href="#sombreros" id="toc-sombreros" class="nav-link" data-scroll-target="#sombreros"><span class="header-section-number">8.5</span> Sombreros</a></li>
   <li><a href="#matrices" id="toc-matrices" class="nav-link" data-scroll-target="#matrices"><span class="header-section-number">8.6</span> Matrices</a></li>
   <li><a href="#teoremas" id="toc-teoremas" class="nav-link" data-scroll-target="#teoremas"><span class="header-section-number">8.7</span> Teoremas</a></li>
@@ -325,16 +359,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
 
-<p>La escritura de fórmulas matemáticas es uno de los puntos fuertes de <span class="math inline">\(\LaTeX\)</span>, y es por ello que se utiliza tanto para la creación de documentos científicos o técnicos con contenido matemático.</p>
+
+<p>La escritura de fórmulas matemáticas es uno de los puntos fuertes de , y es por ello que se utiliza tanto para la creación de documentos científicos o técnicos con contenido matemático.</p>
 <p>Para escribir una fórmula es necesario cambiar al modo matemático. Existen distintas formas de activar el modo matemático:</p>
 <ul>
 <li><p><code>$</code>: Activa el modo matemático en linea, es decir, las fórmulas aparecerán en la misma linea que el texto que las rodea. Para desactivar este modo hay que volver a escriri <code>$</code>.</p></li>
 <li><p><code>$$</code>: Activa el modo matemático <em>display</em> (desplegado), de manera que las fórmulas aparecen en una línea aparte.</p></li>
 <li><p>El entorno <code>equation</code> también activa el modo matemático <em>display</em> pero además asigna un número a la ecuación, para poder referenciarla en otras partes del documento.</p></li>
 </ul>
-<p><strong>Ejemplo</strong></p>
+<div id="exm-entornos-matematicos" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 8.1</strong></span> &nbsp;</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">% CUERPO</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">document</span>}</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Ejemplo de fórmula en linea <span class="ss">$ x+y=0 $</span>.</span>
@@ -366,6 +403,7 @@ Salida
 </div>
 </div>
 </div>
+</div>
 <section id="símbolos-matemáticos" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="símbolos-matemáticos"><span class="header-section-number">8.1</span> Símbolos matemáticos</h2>
 <p>Existe una infinidad de símbolos matemáticos que escriben mediante comandos. A continuación se muestran los más habituales.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
@@ -373,7 +411,7 @@ Salida
 <h3 data-number="8.1.1" class="anchored" data-anchor-id="letras-griegas"><span class="header-section-number">8.1.1</span> Letras griegas</h3>
 <p>Para escribir letras griegas se utilizan los siguientes comandos:</p>
 <p><strong>Minúsculas</strong></p>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
 <col style="width: 25%">
@@ -432,7 +470,7 @@ Salida
 </tbody>
 </table>
 <p><strong>Mayúsculas</strong></p>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
 <col style="width: 25%">
@@ -463,7 +501,7 @@ Salida
 </section>
 <section id="operadores-aritméticos" class="level3" data-number="8.1.2">
 <h3 data-number="8.1.2" class="anchored" data-anchor-id="operadores-aritméticos"><span class="header-section-number">8.1.2</span> Operadores aritméticos</h3>
-<table class="table">
+<table class="caption-top table">
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><code>+</code> <span class="math inline">\(+\)</span></td>
@@ -482,7 +520,7 @@ Salida
 </section>
 <section id="relaciones" class="level3" data-number="8.1.3">
 <h3 data-number="8.1.3" class="anchored" data-anchor-id="relaciones"><span class="header-section-number">8.1.3</span> Relaciones</h3>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
 <col style="width: 25%">
@@ -519,7 +557,7 @@ Salida
 </section>
 <section id="operadores-binarios" class="level3" data-number="8.1.4">
 <h3 data-number="8.1.4" class="anchored" data-anchor-id="operadores-binarios"><span class="header-section-number">8.1.4</span> Operadores binarios</h3>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
 <col style="width: 25%">
@@ -538,7 +576,7 @@ Salida
 </section>
 <section id="lógica" class="level3" data-number="8.1.5">
 <h3 data-number="8.1.5" class="anchored" data-anchor-id="lógica"><span class="header-section-number">8.1.5</span> Lógica</h3>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 20%">
 <col style="width: 20%">
@@ -559,7 +597,7 @@ Salida
 </section>
 <section id="conjuntos" class="level3" data-number="8.1.6">
 <h3 data-number="8.1.6" class="anchored" data-anchor-id="conjuntos"><span class="header-section-number">8.1.6</span> Conjuntos</h3>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
 <col style="width: 25%">
@@ -584,7 +622,7 @@ Salida
 </section>
 <section id="flechas" class="level3" data-number="8.1.7">
 <h3 data-number="8.1.7" class="anchored" data-anchor-id="flechas"><span class="header-section-number">8.1.7</span> Flechas</h3>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
 <col style="width: 25%">
@@ -627,7 +665,7 @@ Salida
 </section>
 <section id="puntos-suspensivos" class="level3" data-number="8.1.8">
 <h3 data-number="8.1.8" class="anchored" data-anchor-id="puntos-suspensivos"><span class="header-section-number">8.1.8</span> Puntos suspensivos</h3>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
 <col style="width: 25%">
@@ -646,7 +684,7 @@ Salida
 </section>
 <section id="otros-símbolos" class="level3" data-number="8.1.9">
 <h3 data-number="8.1.9" class="anchored" data-anchor-id="otros-símbolos"><span class="header-section-number">8.1.9</span> Otros símbolos</h3>
-<table class="table">
+<table class="caption-top table">
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><code>\infty</code> <span class="math inline">\(\infty\)</span></td>
@@ -658,7 +696,7 @@ Salida
 </section>
 <section id="funciones" class="level3" data-number="8.1.10">
 <h3 data-number="8.1.10" class="anchored" data-anchor-id="funciones"><span class="header-section-number">8.1.10</span> Funciones</h3>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
 <col style="width: 25%">
@@ -692,14 +730,15 @@ Salida
 </tr>
 </tbody>
 </table>
-<p>f Es posible declarar nuevos operadores o funciones cargando el paquete <code>amsmath</code> con el comando <code>\DeclareMathOperator{comando}{texto}</code>. Por ejemplo, para obtener las versión de la función seno en español se puede definir <code>DeclareMathOperator{\sen}{sen}</code> en el preámbulo y luego utilizar el comando <code>\sen</code> en el cuerpo para obtener la función seno en español.</p>
+<p>Es posible declarar nuevos operadores o funciones cargando el paquete <code>amsmath</code> con el comando <code>\DeclareMathOperator{comando}{texto}</code>. Por ejemplo, para obtener las versión de la función seno en español se puede definir <code>DeclareMathOperator{\sen}{sen}</code> en el preámbulo y luego utilizar el comando <code>\sen</code> en el cuerpo para obtener la función seno en español.</p>
 <p>Otro paquete que incorpora aún más símbolos es <code>amssymb</code>.</p>
 </section>
 </section>
 <section id="subíndices-y-superíndices" class="level2" data-number="8.2">
 <h2 data-number="8.2" class="anchored" data-anchor-id="subíndices-y-superíndices"><span class="header-section-number">8.2</span> Subíndices y superíndices</h2>
 <p>Para poner subíndices se utiliza el comando <code>_</code> y para superíndices <code>^</code>. Si el subíndice o superíndice afecta a más de un carácter, hay que ponerlos entre llaves.</p>
-<p><strong>Ejemplo</strong></p>
+<div id="exm-subindices-superindices" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 8.2</strong></span> &nbsp;</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">% CUERPO</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">document</span>}</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>Ejemplo de fórmula con subíndices</span>
@@ -737,13 +776,15 @@ Salida
 </div>
 </div>
 </div>
+</div>
 <p>Se pueden escribir subíndices de subíndices o superíndices de superíndices anidando los comandos.</p>
 </section>
 <section id="fracciones" class="level2" data-number="8.3">
 <h2 data-number="8.3" class="anchored" data-anchor-id="fracciones"><span class="header-section-number">8.3</span> Fracciones</h2>
 <p>Para escribir fracciones simples en línea se puede usar el operador aritmético <span class="math inline">\(/\)</span> (por ejemplo <span class="math inline">\(3/4\)</span>), pero para fracciones más complejas o fracciones en modo display, conviene utilizar el comando <code>\frac{num}{den}</code>, donde <code>num</code> es el numerador y <code>den</code> el denominador.</p>
 <p>A su vez, se pueden escribir más fracciones en el numerador o el denominador, anidando este comando.</p>
-<p><strong>Ejemplo</strong></p>
+<div id="exm-fracciones" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 8.3</strong></span> &nbsp;</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">% CUERPO</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">document</span>}</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>Ejemplo de fracción en línea <span class="ss">$</span><span class="sc">\frac</span><span class="ss">{x+2}{x^2-2x+1}$</span>.</span>
@@ -771,12 +812,14 @@ Salida
 </div>
 </div>
 </div>
+</div>
 </section>
-<section id="sumatorios-productorios-e-integrales" class="level2" data-number="8.4">
-<h2 data-number="8.4" class="anchored" data-anchor-id="sumatorios-productorios-e-integrales"><span class="header-section-number">8.4</span> Sumatorios, productorios e integrales</h2>
-<p>Para escribir sumatorios se utiliza el comando <code>\sum_{sub}^{sup}</code>, donde <span class="math inline">\(sub\)</span> es el subíndice que indica el inicio de la suma y <span class="math inline">\(sup\)</span> es el superíndice que indica el final de la suma. Si se quieren omitir los índices de inicio y final de la suma, basta con el comando <code>\sum</code>.</p>
+<section id="sumatorios-productorios-integrales-y-límites." class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="sumatorios-productorios-integrales-y-límites."><span class="header-section-number">8.4</span> Sumatorios, productorios, integrales y límites.</h2>
+<p>Para escribir sumatorios se utiliza el comando <code>\sum_{sub}^{sup}</code>, donde <code>sub</code> es el subíndice que indica el inicio de la suma y <code>sup</code> es el superíndice que indica el final de la suma. Si se quieren omitir los índices de inicio y final de la suma, basta con el comando <code>\sum</code>.</p>
 <p>De manera análoga, para escribir productorios se utiliza el comando <code>\prod_{sub}^{sup}</code>, donde <code>sub</code> es el subíndice que indica el inicio del producto y <code>sup</code> es el superíndice que indica el final del producto. Si se quieren omitir los índices de inicio y final del producto, basta con el comando <code>\prod</code>.</p>
-<p><strong>Ejemplo</strong></p>
+<div id="exm-sumatorio-productorio" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 8.4</strong></span> &nbsp;</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">% CUERPO</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">document</span>}</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>Ejemplo de sumatorio</span>
@@ -805,8 +848,10 @@ Salida
 </div>
 </div>
 </div>
-<p>Del mismo modo, para escribir integrales definidas se utiliza el comando <code>\int_{sub}^{sup}</code>, donde <span class="math inline">\(sub\)</span> es el subíndice que indica el inicio de la integral y <span class="math inline">\(sup\)</span> es el superíndice que indica el final de la integral. Para integrales indefinidas, basta con el comando <code>\int</code>.</p>
-<p><strong>Ejemplo</strong></p>
+</div>
+<p>Del mismo modo, para escribir integrales definidas se utiliza el comando <code>\int_{sub}^{sup}</code>, donde <code>sub</code> es el subíndice que indica el inicio de la integral y <code>sup</code> es el superíndice que indica el final de la integral. Para integrales indefinidas, basta con el comando <code>\int</code>.</p>
+<div id="exm-integrales" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 8.5</strong></span> &nbsp;</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">% CUERPO</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">document</span>}</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>Ejemplo de integral definida</span>
@@ -835,23 +880,17 @@ Salida
 </div>
 </div>
 </div>
-</section>
-<section id="sombreros" class="level2" data-number="8.5">
-<h2 data-number="8.5" class="anchored" data-anchor-id="sombreros"><span class="header-section-number">8.5</span> Sombreros</h2>
-<p>Es posible poner símbolos encima de otros símbolos, más conocidos como <em>sombreros</em>. Los siguientes comandos sirven para poner distintos tipos de sombreros:</p>
-<ul>
-<li><code>\bar{...}</code>: Linea horizontal para un carácter.</li>
-<li><code>\overline{...}</code>: Línea horizontal para varios caracteres.</li>
-<li><code>\hat</code>: Ángulo para un carácter.</li>
-<li><code>\widehat</code>: Ángulo para varios caracteres.</li>
-<li><code>\vec{...}</code>: Flecha para un carácter.</li>
-<li><code>\overrightarrow{...}</code>: Flecha para varios caracteres.</li>
-</ul>
-<p><strong>Ejemplo</strong></p>
+</div>
+<p>Finalmente, para escribir límites se utiliza el comando <code>\lim_{sub}</code>, donde <code>sub</code> es el subíndice e indica las variables y el valor al que tienden.</p>
+<div id="exm-limites" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 8.6</strong></span> &nbsp;</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">% CUERPO</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">document</span>}</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>Ejemplos de sombreros: <span class="ss">$</span><span class="sc">\overline</span><span class="ss">{xy}$</span>, <span class="ss">$</span><span class="sc">\hat</span><span class="ss">{a}$</span>, <span class="ss">$</span><span class="sc">\widehat</span><span class="ss">{abc}$</span>, <span class="ss">$</span><span class="sc">\vec</span><span class="ss">{u}$</span>.</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">document</span>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>Ejemplo de límite</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ss">$$</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="sc">\lim</span><span class="ss">_{h</span><span class="sc">\to</span><span class="ss"> 0} </span><span class="sc">\frac</span><span class="ss">{f(a+h)-f(a)}{h}</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="ss">$$</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">document</span>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -864,27 +903,29 @@ Salida
 </div>
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><img src="img/formulas/sombreros.png" class="img-fluid"></p>
+<p><img src="img/formulas/limite.png" class="img-fluid"></p>
+</div>
 </div>
 </div>
 </div>
 </section>
-<section id="matrices" class="level2" data-number="8.6">
-<h2 data-number="8.6" class="anchored" data-anchor-id="matrices"><span class="header-section-number">8.6</span> Matrices</h2>
-<p>Las matrices se crean de manera similar a como se crean las tablas (ver <a href="#sec-tablas"><span class="quarto-unresolved-ref">sec-tablas</span></a>), pero utilizando el entorno <code>array</code> en lugar del entorno <code>tabular</code>. Para encerrar la matriz entre paréntesis se pone el comando <code>\left(</code> antes del entorno y el comando <code>\right)</code> después.</p>
-<p><strong>Ejemplo</strong></p>
+<section id="sombreros" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="sombreros"><span class="header-section-number">8.5</span> Sombreros</h2>
+<p>Es posible poner símbolos encima de otros símbolos, más conocidos como <em>sombreros</em>. Los siguientes comandos sirven para poner distintos tipos de sombreros:</p>
+<ul>
+<li><code>\bar{...}</code>: Linea horizontal para un carácter.</li>
+<li><code>\overline{...}</code>: Línea horizontal para varios caracteres.</li>
+<li><code>\hat</code>: Ángulo para un carácter.</li>
+<li><code>\widehat</code>: Ángulo para varios caracteres.</li>
+<li><code>\vec{...}</code>: Flecha para un carácter.</li>
+<li><code>\overrightarrow{...}</code>: Flecha para varios caracteres.</li>
+</ul>
+<div id="exm-sombreros" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 8.7</strong></span> &nbsp;</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">% CUERPO</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">document</span>}</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>Ejemplo de matriz</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="ss">$$</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="sc">\left</span><span class="ss">(</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">array</span>}<span class="ss">{rrr}</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="ss">1 &amp; 2 &amp; 3 </span><span class="sc">\\</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="ss">x &amp; y &amp; z </span><span class="sc">\\</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">array</span>}</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="sc">\right</span><span class="ss">)</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="ss">$$</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">document</span>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>Ejemplos de sombreros: <span class="ss">$</span><span class="sc">\overline</span><span class="ss">{xy}$</span>, <span class="ss">$</span><span class="sc">\hat</span><span class="ss">{a}$</span>, <span class="ss">$</span><span class="sc">\widehat</span><span class="ss">{abc}$</span>, <span class="ss">$</span><span class="sc">\vec</span><span class="ss">{u}$</span>.</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">document</span>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -897,34 +938,29 @@ Salida
 </div>
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><img src="img/formulas/matriz.png" class="img-fluid"></p>
+<p><img src="img/formulas/sombreros.png" class="img-fluid"></p>
 </div>
 </div>
 </div>
-<p>El paquete <code>amsmath</code> incorpora varios entornos más específicos para matrices donde no es necesario especificar el número de columnas, y tampoco los delimitadores:</p>
-<ul>
-<li><code>matrix</code>: Matriz sin delimitadores (equivalente al entorno <code>array</code>)</li>
-<li><code>pmatrix</code>: Matriz encerrada entre paréntesis.</li>
-<li><code>vmatrix</code>: Matriz encerrada entre barras verticales (por ejemplo para determinates).</li>
-<li><code>Vmatrix</code>: Matriz encerrada ente dobles barras verticales.</li>
-<li><code>bmatrix</code>: Matriz encerrada entre corchetes.</li>
-<li><code>Bmatrix</code>: Matriz encerrada entre llaves.</li>
-</ul>
-<p><strong>Ejemplo</strong></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">% PREÁMBULO</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>{<span class="ex">amsmath</span>}</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">% CUERPO</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">document</span>}</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>Ejemplo de determinante</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="ss">$$</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">vmatrix</span>}</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="ss">1 &amp; x &amp; </span><span class="sc">\alpha</span><span class="ss"> </span><span class="sc">\\</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="ss">2 &amp; y &amp; </span><span class="sc">\beta</span><span class="ss"> </span><span class="sc">\\</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="ss">3 &amp; z &amp;</span><span class="sc">\gamma</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">vmatrix</span>}</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="ss">$$</span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">document</span>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="matrices" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="matrices"><span class="header-section-number">8.6</span> Matrices</h2>
+<p>Las matrices se crean de manera similar a como se crean las tablas (ver <a href="tablas.html" class="quarto-xref"><span>Capítulo 6</span></a>), pero utilizando el entorno <code>array</code> en lugar del entorno <code>tabular</code>. Para encerrar la matriz entre paréntesis se pone el comando <code>\left(</code> antes del entorno y el comando <code>\right)</code> después.</p>
+<div id="exm-matrices" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 8.8</strong></span> &nbsp;</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">% CUERPO</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">document</span>}</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>Ejemplo de matriz</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="ss">$$</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="sc">\left</span><span class="ss">(</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">array</span>}<span class="ss">{rrr}</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="ss">1 &amp; 2 &amp; 3 </span><span class="sc">\\</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="ss">x &amp; y &amp; z </span><span class="sc">\\</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">array</span>}</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="sc">\right</span><span class="ss">)</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="ss">$$</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">document</span>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -937,46 +973,36 @@ Salida
 </div>
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><img src="img/formulas/determinante.png" class="img-fluid"></p>
+<p><img src="img/formulas/matriz.png" class="img-fluid"></p>
 </div>
 </div>
 </div>
-</section>
-<section id="teoremas" class="level2" data-number="8.7">
-<h2 data-number="8.7" class="anchored" data-anchor-id="teoremas"><span class="header-section-number">8.7</span> Teoremas</h2>
-<p>Para crear denificiones, teoremas, proposiciones, corolarios y otros tipos de enunciados de sebe cargar el paquete <code>amsthm</code> y definir los tipos de enunciados en el preámbulo con el comando <code>\newtheorem{entorno}{texo}</code>, donde <code>entorno</code> es el nombre del entorno y <code>texto</code> el texto que aparerá en el documento final como encabezado del enunciado.</p>
-<p>Estos entornos admiten como argumento opcional un texto que se utiliza para dar nombre al enunciado.</p>
-<p>Los enunciados definidos con este comando aparecen por defecto numerados para poder referenciarlos en otras partes del documento, pero se pueden definir entornos no numerados con la variante del comando anterior <code>\newtheorem*{entorno}{texo}</code></p>
-<p>Para demostraciones se puede utilizar el entorno <code>proof</code>.</p>
-<p><strong>Ejemplo</strong></p>
+</div>
+<p>El paquete <code>amsmath</code> incorpora varios entornos más específicos para matrices donde no es necesario especificar el número de columnas, y tampoco los delimitadores:</p>
+<ul>
+<li><code>matrix</code>: Matriz sin delimitadores (equivalente al entorno <code>array</code>)</li>
+<li><code>pmatrix</code>: Matriz encerrada entre paréntesis.</li>
+<li><code>vmatrix</code>: Matriz encerrada entre barras verticales (por ejemplo para determinates).</li>
+<li><code>Vmatrix</code>: Matriz encerrada ente dobles barras verticales.</li>
+<li><code>bmatrix</code>: Matriz encerrada entre corchetes.</li>
+<li><code>Bmatrix</code>: Matriz encerrada entre llaves.</li>
+</ul>
+<div id="exm-entornos-matrices" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 8.9</strong></span> &nbsp;</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">% PREÁMBULO</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>{<span class="ex">amsmath</span>}</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">\DeclareMathOperator</span>{<span class="fu">\sen</span>}{sen}</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>{<span class="ex">amsthm</span>}</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">\newtheorem</span>{midef}{Definición}</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">\newtheorem</span>{teo}{Teorema}</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co">% CUERPO</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">document</span>}</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">midef</span>}</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>Dado un triángulo rectángulo de catetos <span class="ss">$a$</span>, <span class="ss">$b$</span> e hipotenusa <span class="ss">$c$</span>, se define</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>el seno del ángulo <span class="ss">$</span><span class="sc">\alpha</span><span class="ss">$</span> opuesto al cateto <span class="ss">$b$</span> como </span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="ss">$$</span></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="sc">\sen</span><span class="ss">{</span><span class="sc">\alpha</span><span class="ss">}= </span><span class="sc">\frac</span><span class="ss">{b}{c}.</span></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="ss">$$</span></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">midef</span>}</span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">teo</span>}</span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>Para cualquier ángulo <span class="ss">$</span><span class="sc">\alpha</span><span class="ss">$</span> se cumple </span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="ss">$</span><span class="sc">\sen</span><span class="ss">(</span><span class="sc">\alpha</span><span class="ss">)^2 + </span><span class="sc">\cos</span><span class="ss">(</span><span class="sc">\alpha</span><span class="ss">)^2 = 1$</span>.</span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">teo</span>}</span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">proof</span>}</span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>Es una consecuencia directa del teorema de Pitágoras.</span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">proof</span>}</span>
-<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">document</span>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">% CUERPO</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">document</span>}</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>Ejemplo de determinante</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="ss">$$</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">vmatrix</span>}</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="ss">1 &amp; x &amp; </span><span class="sc">\alpha</span><span class="ss"> </span><span class="sc">\\</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="ss">2 &amp; y &amp; </span><span class="sc">\beta</span><span class="ss"> </span><span class="sc">\\</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="ss">3 &amp; z &amp;</span><span class="sc">\gamma</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">vmatrix</span>}</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="ss">$$</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">document</span>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -989,7 +1015,62 @@ Salida
 </div>
 <div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
+<p><img src="img/formulas/determinante.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="teoremas" class="level2" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="teoremas"><span class="header-section-number">8.7</span> Teoremas</h2>
+<p>Para crear denificiones, teoremas, proposiciones, corolarios y otros tipos de enunciados de sebe cargar el paquete <code>amsthm</code> y definir los tipos de enunciados en el preámbulo con el comando <code>\newtheorem{entorno}{texo}</code>, donde <code>entorno</code> es el nombre del entorno y <code>texto</code> el texto que aparerá en el documento final como encabezado del enunciado.</p>
+<p>Estos entornos admiten como argumento opcional un texto que se utiliza para dar nombre al enunciado.</p>
+<p>Los enunciados definidos con este comando aparecen por defecto numerados para poder referenciarlos en otras partes del documento, pero se pueden definir entornos no numerados con la variante del comando anterior <code>\newtheorem*{entorno}{texo}</code></p>
+<p>Para demostraciones se puede utilizar el entorno <code>proof</code>.</p>
+<div id="exm-teoremas" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 8.10</strong></span> &nbsp;</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">% PREÁMBULO</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>{<span class="ex">amsmath</span>}</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">\DeclareMathOperator</span>{<span class="fu">\sen</span>}{sen}</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>{<span class="ex">amsthm</span>}</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">\newtheorem</span>{midef}{Definición}</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">\newtheorem</span>{teo}{Teorema}</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">% CUERPO</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">document</span>}</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">midef</span>}</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>Dado un triángulo rectángulo de catetos <span class="ss">$a$</span>, <span class="ss">$b$</span> e hipotenusa <span class="ss">$c$</span>, se define</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>el seno del ángulo <span class="ss">$</span><span class="sc">\alpha</span><span class="ss">$</span> opuesto al cateto <span class="ss">$b$</span> como </span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="ss">$$</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="sc">\sen</span><span class="ss">{</span><span class="sc">\alpha</span><span class="ss">}= </span><span class="sc">\frac</span><span class="ss">{b}{c}.</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="ss">$$</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">midef</span>}</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">teo</span>}</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>Para cualquier ángulo <span class="ss">$</span><span class="sc">\alpha</span><span class="ss">$</span> se cumple </span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a><span class="ss">$</span><span class="sc">\sen</span><span class="ss">(</span><span class="sc">\alpha</span><span class="ss">)^2 + </span><span class="sc">\cos</span><span class="ss">(</span><span class="sc">\alpha</span><span class="ss">)^2 = 1$</span>.</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">teo</span>}</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">proof</span>}</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>Es una consecuencia directa del teorema de Pitágoras.</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">proof</span>}</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">document</span>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Salida
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p><img src="img/formulas/teoremas.png" class="img-fluid"></p>
+</div>
 </div>
 </div>
 </div>
@@ -1012,7 +1093,7 @@ Tip
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><p>Para un listado más exhaustivo de los símbolos matemáticos de <span class="math inline">\(\LaTeX\)</span>, puede consultarse el documento <a href="https://www3.nd.edu/~nmark/UsefulFacts/LaTeX_symbols.pdf">The Great, Big List of <span class="math inline">\(\LaTeX\)</span> Symbols</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>Para un listado más exhaustivo de los símbolos matemáticos de , puede consultarse el documento <a href="https://www3.nd.edu/~nmark/UsefulFacts/LaTeX_symbols.pdf">The Great, Big List of Symbols</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
@@ -1058,6 +1139,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -1126,13 +1234,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'alternate';
+  const darkModeDefault = true;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -1167,18 +1277,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1210,11 +1309,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/aprendeconalf\.es");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1224,8 +1362,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1237,7 +1384,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1281,6 +1551,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1306,6 +1577,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1367,17 +1664,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./imagenes.html" class="pagination-link">
+      <a href="./imagenes.html" class="pagination-link" aria-label="Imágenes">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Imágenes</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./entornos-flotantes.html" class="pagination-link">
+      <a href="./entornos-flotantes.html" class="pagination-link" aria-label="Entornos flotantes">
         <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Entornos flotantes</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

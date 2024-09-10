@@ -17,7 +17,7 @@ Las secciones definidas con estos documentos aparecerán en la tabla de contenid
 
 Existen versiones alternativas de estos comandos añadiendo un asterisco (`\chapter*`, `\section*`, `\subsection*`, `\subsubsection*`) que crean encabezados de sección sin numerar y que tampoco aparecerán en la tabla de contenidos.
 
-**Ejemplo**
+:::{#exm-secciones}
 
 ```latex
 \documentclass[a4paper, 10pt]{article}
@@ -48,6 +48,7 @@ Texto de la sección.
 ## Salida
 ![](img/secciones/secciones.png)
 :::
+:::
 
 ## Párrafos y cambios de línea
 
@@ -55,7 +56,7 @@ Para crear un párrafo nuevo basta dejar una o más líneas en blanco.
 
 Si se quiere hacer un cambio de línea dentro de un mismo párrafo, se utiliza el comando `\newline` o `\\`.
 
-**Ejemplo**
+:::{#exm-parrafos}
 
 ```latex
 % CUERPO
@@ -73,14 +74,17 @@ Esto se conoce como \emph{sangría}.
 ## Salida
 ![](img/secciones/parrafos.png)
 :::
+:::
 
 ## Justificación
 
-Los párrafos se justifican por defecto a la izquierda y a la derecha. $\LaTeX$ utiliza un algoritmo que permite partir las palabras al final de una línea para obtener párrafos con una buena estética (sin grandes espacios en blanco entre palabras). Pero también se pueden justificar solo a la izquierda, solo a la derecha o centrados entre los márgenes. Para ello se utilizan los siguientes entornos:
+Los párrafos se justifican por defecto a la izquierda y a la derecha. \LaTeX utiliza un algoritmo que permite partir las palabras al final de una línea para obtener párrafos con una buena estética (sin grandes espacios en blanco entre palabras). Pero también se pueden justificar solo a la izquierda, solo a la derecha o centrados entre los márgenes. Para ello se utilizan los siguientes entornos:
 
 - `flushleft`: Justifica el texto a la izquierda.
 - `flushright`: Justifica el texto a la derecha.
 - `center`: Justifica el texto centrado entre los márgenes.
+
+:::{#exm-justificacion}
 
 ```latex
 % CUERPO
@@ -113,6 +117,7 @@ empiezan ni terminan a la misma altura.
 :::{.callout-note collapse="true" icon=false}
 ## Salida
 ![](img/secciones/justificacion.png)
+:::
 :::
 
 :::{.callout-warning}

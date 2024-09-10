@@ -15,7 +15,7 @@ Para resaltar un texto habitualmente se utiliza negrita, cursiva o subrayado. Es
 - `\emph{...}`: Enfatiza el texto cambiando de estilo (si estamos en un entorno de cursiva pasa a normal y si estamos en un entorno de texto normal pasa a cursiva).
 - `\underline{...}`: Subraya el texto.
 
-**Ejemplo**
+:::{#exm-formateo}
 
 ```latex
 % CUERPO
@@ -31,6 +31,7 @@ Este texto está en \textbf{negrita}, este en \textit{cursiva} y este
 ## Salida
 ![](img/formateo/resaltado.png)
 :::
+:::
 
 ## Familias de tipos de letra
 
@@ -40,7 +41,7 @@ Existen tres tipos de letra que se activan con los siguientes comandos:
 - `\texsf{...}`: Texto sin adornos (sin serif)
 - `\texttt{...}`: Texto de máquina de escribir o monoespaciado (caracteres con la misma anchura).
 
-**Ejemplo**
+:::{#exm-familias-letra}
 
 ```latex
 % CUERPO
@@ -53,6 +54,7 @@ Este texto es normal, \textsf{este es sin adornos}, \texttt{y este de máquina d
 ## Salida
 ![](img/formateo/tipos-letra.png)
 :::
+:::
 
 En el preámbulo del documento se puede seleccionar la fuente a utilizar para cada uno de ellos, especialmente con el paquete `fontspec` para compilar con `xelatex`. Para ello se utilizan los siguientes comandos:
 
@@ -64,7 +66,7 @@ En el preámbulo del documento se puede seleccionar la fuente a utilizar para ca
 Las fuentes utilizadas en un documento deben estar previamente instaladas en el sistema operativo donde se compile el documento.
 :::
 
-**Ejemplo**
+:::{#exm-familias-letra-xelatex}
 
 ```latex
 % PREÁMBULO
@@ -84,6 +86,7 @@ Este texto es normal, \textsf{este es sin adornos},
 ## Salida
 ![](img/formateo/tipos-letra-xelatex.png)
 :::
+:::
 
 ## Perfiles de letra
 
@@ -94,7 +97,7 @@ Para cada tipo de letra existen también varios perfiles que se activan con los 
 - `\textsl{...}`: Activa el perfil inclinado.
 - `\textsc{...}`: Activa el perfil de letra versalita (mayúsculas pequeñas).
 
-**Ejemplo**
+:::{#exm-perfiles-letra}
 
 ```latex
 % CUERPO
@@ -114,10 +117,11 @@ Texto normal con perfil recto, \textit{itálica}, \textsl{inclinado} y
 ## Salida
 ![](img/formateo/perfiles-letra.png)
 :::
+:::
 
 ## Tamaños de letra
 
-A diferencia de otros procesadores donde el tamaño de la fuente se indica en puntos o pixels, en $\LaTeX$ existen 10 tamaños predefinidos que se activan con los siguientes comandos, de menor a mayor tamaño:
+A diferencia de otros procesadores donde el tamaño de la fuente se indica en puntos o pixels, en \LaTeX existen 10 tamaños predefinidos que se activan con los siguientes comandos, de menor a mayor tamaño:
 
 - `\tiny `
 - `\scriptsize `
@@ -132,7 +136,7 @@ A diferencia de otros procesadores donde el tamaño de la fuente se indica en pu
 
 Existen paquetes que permiten definir tamaños más pequeños o mayores pero no suelen ser necesarios en un documento normal.
 
-**Ejemplo**
+:::{#exm-tamaños-letra}
 
 ```latex
 % CUERPO
@@ -153,4 +157,5 @@ Existen paquetes que permiten definir tamaños más pequeños o mayores pero no 
 :::{.callout-note collapse="true" icon=false}
 ## Salida
 ![](img/formateo/tamaño-fuente.png)
+:::
 :::

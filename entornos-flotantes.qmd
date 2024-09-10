@@ -17,14 +17,16 @@ El entorno flotante para figuras es `figure` tiene el siguiente esqueleto.
 ```latex
 \begin{figure}[posición]
     Código de las imágenes
-\label{etiqueta}
 \caption{leyenda}
+\label{etiqueta}
 \end{figure}
 ```
 
-El argumento opcional indica la preferencia de ubicación de la figura en la página (`h` en el lugar en el que aparece en el código fuente, `t` arriba, `b` abajo). $\LaTeX$ intentará ubicar la figura en esa posición salvo que no sea posible.
+El argumento opcional indica la preferencia de ubicación de la figura en la página (`h` en el lugar en el que aparece en el código fuente, `t` arriba, `b` abajo). \LaTeX intentará ubicar la figura en esa posición salvo que no sea posible.
 
-Las figuras flotantes se numeran automáticamente y el comando `\label{...}` asigna una etiqueta al entorno flotante para poder referenciarlo desde otras partes del documento. Por su parte, el comando `\caption{...}` crea la leyenda de la figura.
+Las figuras flotantes se numeran automáticamente y el comando `\label{...}` asigna una etiqueta al entorno flotante para poder referenciarlo desde otras partes del documento. Por su parte, el comando `\caption{...}` crea la leyenda de la figura. Es importante que la etiqueta inmediatamente vaya a continuación de la leyenda.
+
+:::{#exm-figuras-flotantes}
 
 ```latex
 % PREÁMBULO
@@ -39,8 +41,8 @@ fuente.
 \begin{center}
 \includegraphics{img/logo-aprendeconalf.png}
 \end{center}
-\label{img-1}
 \caption{Logotipo del sitio web AprendeconAlf.}
+\label{img-1}
 \end{figure}
 \end{document}
 ```
@@ -48,6 +50,7 @@ fuente.
 :::{.callout-note collapse="true" icon=false}
 ## Salida
 ![](img/entornos-flotantes/figura-flotante.png)
+:::
 :::
 
 Para incluir el listado de figuras de un documento en cualquier parte se utiliza el comando `\listoffigures`.
@@ -59,12 +62,14 @@ El entorno flotante para tablas es `table` y su esqueleto es muy parecido al del
 ```latex
 \begin{table}[posición]
     Código de la tabla
-\label{etiqueta}
 \caption{leyenda}
+\label{etiqueta}
 \end{table}
 ```
 
 Las tablas, al igual que las figuras, se enumeran automáticamente y pueden referenciarse después asignándoles una etiqueta con el comando `\label{...}`.
+
+:::{#exm-tablas-flotantes}
 
 ```latex
 % CUERPO
@@ -88,8 +93,8 @@ Carmen & Barcelona & 35 \\
 \hline
 \end{tabular}
 \end{center}
-\label{img-1}
 \caption{Tabla de clientes de una empresa.}
+\label{tabla-1}
 \end{table}
 \end{document}
 ```
@@ -97,6 +102,7 @@ Carmen & Barcelona & 35 \\
 :::{.callout-note collapse="true" icon=false}
 ## Salida
 ![](img/entornos-flotantes/tabla-flotante.png)
+:::
 :::
 
 Para incluir el listado de figuras de un documento en cualquier parte se utiliza el comando `\listoftables`.

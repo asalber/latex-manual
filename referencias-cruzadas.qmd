@@ -4,7 +4,7 @@ lang: es
 
 # Referencias cruzadas y notas a pie
 
-Otro de los puntos fuertes de $\LaTeX$ es la gestión de las referencias cruzadas, es decir, referencias a otras partes del documento, así como las notas a pie de página.
+Otro de los puntos fuertes de \LaTeX es la gestión de las referencias cruzadas, es decir, referencias a otras partes del documento, así como las notas a pie de página.
 
 ## Referencias cruzadas
 
@@ -12,7 +12,7 @@ Como se ha visto, muchos elementos de un documento están enumerados: capítulos
 
 Posteriormente, para hacer una referencia al elemento en otra parte del documento se utiliza el comando `\ref{etiqueta}`.
 
-**Ejemplo**
+:::{#exm-referencias-cruzadas}
 
 ```latex
 % PREÁMBULO
@@ -40,21 +40,23 @@ Ejemplo de referencia cruzada. La ecuación \ref{eq-trigo} del teorema
 ## Salida
 ![](img/referencias-cruzadas/referencias-cruzadas.png)
 :::
+:::
 
 ## Notas a pie de página
 
 Para insertar una nota a pié de página se utiliza el comando `\footnote{...}`.
 
-**Ejemplo**
+:::{#exm-notas-pie}
 
 ```latex
 % CUERPO
 \begin{document}
-El logotipo de latex es $\LaTeX$.\footnote{Fue creado por Leslie Lamport.}
+El logotipo de latex es \LaTeX.\footnote{Fue creado por Leslie Lamport.}
 \end{document}
 ```
 
 :::{.callout-note collapse="true" icon=false}
 ## Salida
 ![](img/referencias-cruzadas/nota-pie.png)
+:::
 :::

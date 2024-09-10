@@ -12,7 +12,7 @@ Existen tres tipos de listas, no ordenadas, ordenadas y descriptivas (en lugar d
 
 Dentro de estos entornos, cada elemento de la lista debe empezar en una línea nueva con el comando `\item`. En el caso de las listas descriptivas, hay que proporcionar el texto del item de la lista como un argumento obligatorio.
 
-**Ejemplos**
+:::{#exm-lista-no-ordenada}
 
 Ejemplo de lista no ordenada.
 
@@ -32,7 +32,9 @@ Ejemplo de lista no ordenada:
 ## Salida
 ![](img/listas/lista-no-ordenad.png)
 :::
+:::
 
+:::{#exm-lista-ordenada}
 Ejemplo de lista ordenada.
 
 ```latex
@@ -51,7 +53,9 @@ Ejemplo de lista ordenada:
 ## Salida
 ![](img/listas/lista-ordenada.png)
 :::
+:::
 
+:::{#exm-lista-descriptiva}
 Ejemplo de lista descriptiva.
 
 ```latex
@@ -71,10 +75,11 @@ codificación Unicode.
 ## Salida
 ![](img/listas/lista-desciptiva.png)
 :::
+:::
 
 Se pueden crear sublistas anidando unos entornos dentro de otros.
 
-**Ejemplo**
+:::{#exm-listas-anidadas}
 
 ```latex
 % CUERPO
@@ -98,6 +103,7 @@ Ejemplo de listas anidadas:
 :::{.callout-note collapse="true" icon=false}
 ## Salida
 ![](img/listas/listas-anidadas.png)
+:::
 :::
 
 La indentación en el código fuente del ejemplo anterior no es obligatoria pero ayuda a ver mejor la estructura de anidamiento de entornos.

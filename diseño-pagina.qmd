@@ -17,7 +17,7 @@ El paquete `geometry` permite definir las dimensiones de la página mediante un 
 
 Por defecto la orientación del documento es vertical, pero puede ponerse en formato horizontal o apaisado con el argumento `landscape`.
 
-**Ejemplo**
+:::{#exm-pagina-a5-apaisada}
 
 ```latex
 % PREÁMBULO
@@ -39,6 +39,7 @@ Esta es una página de tamaño A5 apaisada.
 ## Salida
 ![](img/dise%C3%B1o-pagina/pagina-a5-apaisada.png)
 :::
+:::
 
 También permite definir los márgenes del documento mediante los siguientes argumentos:
 
@@ -49,7 +50,7 @@ También permite definir los márgenes del documento mediante los siguientes arg
 - `bottom=x` establece el margen inferior con tamaño `x`.
 
 
-**Ejemplo**
+:::{#exm-margenes}
 
 ```latex
 % PREÁMBULO
@@ -69,10 +70,11 @@ Este es una página con márgenes personalizados.
 ## Salida
 ![](img/dise%C3%B1o-pagina/pagina-margenes-personalizados.png)
 :::
+:::
 
 ## Encabezados y pies de página
 
-$\LaTeX$ incluye encabezados y pies de página automáticos dependiendo del tipo de documento. Para las clases `article` y `report` no hay encabezado y el pie es el número de página, mientras que para la clase `book` el encabezado incluye la página y la sección a la que corresponde la página. No obstante, el usuario puede definir sus propios encabezados y pies mediante el paquete `fancyhdr`. 
+\LaTeX incluye encabezados y pies de página automáticos dependiendo del tipo de documento. Para las clases `article` y `report` no hay encabezado y el pie es el número de página, mientras que para la clase `book` el encabezado incluye la página y la sección a la que corresponde la página. No obstante, el usuario puede definir sus propios encabezados y pies mediante el paquete `fancyhdr`. 
 
 Una vez cargado este paquete y antes de definir el texto del encabezado y del pie, hay que cambiar el estilo de página (`plain` por defecto) a `fancy`, y para ello se utiliza el comando `\pagestyle{fancy}` que indica al compilador que se van a usar un encabezado y pie personalizados.
 
@@ -88,7 +90,7 @@ Para definir el encabezado y el pie de página se utilizan los comandos
 El paquete `fancyhdr` no elimina los encabezados por defecto de cada tipo de documento, por lo que si se van a definir encabezados o pies personalizados, conviene utilizar los comandos `\fancyhead{}` y `\fancyfoot{}` para eliminar el encabezado y pie por defecto antes de definir los propios.
 :::
 
-**Ejemplo**
+:::{#exm-encabezado-pie}
 
 ```latex
 % PREÁMBULO
@@ -116,13 +118,14 @@ Este es una página con encabezado y pie personalizado.
 ## Salida
 ![](img/diseño-pagina/encabezado-pie.png)
 :::
+:::
 
 Como se puede observar, por defecto `fancyhdr` introduce una línea horizontal para separar el encabezado. Es posible modificar el grosor de la línea redefiniendo los comandos `\headrulewith` y `\footrulewith`. Por ejemplo, si no queremos que aparezca la línea se escribiría `\renewcommand{\headrulewidth}{0pt}`. 
 
 Finalmente, el espacio entre el encabezado y el cuerpo del texto también se controla con el paquete `geometry` con la opción `headsep=x`. Del mismo modo, la separación entre el pie y el cuerpo se controla con la opción `footskip=x`. 
 
 
-**Ejemplo**
+:::{#exm-encabezado-pie-2}
 
 ```latex
 % PREÁMBULO
@@ -151,4 +154,5 @@ Este es una página con encabezado y pie personalizado.
 :::{.callout-note collapse="true" icon=false}
 ## Salida
 ![](img/diseño-pagina/encabezado-pie-2.png)
+:::
 :::

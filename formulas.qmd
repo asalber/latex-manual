@@ -4,7 +4,7 @@ lang: es
 
 # Fórmulas matemáticas
 
-La escritura de fórmulas matemáticas es uno de los puntos fuertes de $\LaTeX$, y es por ello que se utiliza tanto para la creación de documentos científicos o técnicos con contenido matemático.
+La escritura de fórmulas matemáticas es uno de los puntos fuertes de \LaTeX, y es por ello que se utiliza tanto para la creación de documentos científicos o técnicos con contenido matemático.
 
 Para escribir una fórmula es necesario cambiar al modo matemático. Existen distintas formas de activar el modo matemático:
 
@@ -14,7 +14,7 @@ Para escribir una fórmula es necesario cambiar al modo matemático. Existen dis
 
 - El entorno `equation` también activa el modo matemático _display_ pero además asigna un número a la ecuación, para poder referenciarla en otras partes del documento.
 
-**Ejemplo**
+:::{#exm-entornos-matematicos}
 
 ```latex
 % CUERPO
@@ -37,6 +37,7 @@ x+y=0
 :::{.callout-note collapse="true" icon=false}
 ## Salida
 ![](img/formulas/entornos-matematicos.png)
+:::
 :::
 
 ## Símbolos matemáticos
@@ -133,7 +134,7 @@ Para escribir letras griegas se utilizan los siguientes comandos:
 |`\cos` $\cos$ | `\arccos` $\arccos$ | `\sec` $\sec$ | `\operatorname{arcsec}` $\operatorname{arcsec}$ |
 | `\tan` $\tan$ | `\arctan` $\arctan$ | `\cot` $\cot$ | `\operatorname{arccot}` $\operatorname{arccot}$ |
 | `\exp` $\exp$ | `\log` $\log$ | `\ln` $\ln$ | 
-f
+
 Es posible declarar nuevos operadores o funciones cargando el paquete `amsmath` con el comando `\DeclareMathOperator{comando}{texto}`. Por ejemplo, para obtener las versión de la función seno en español se puede definir `DeclareMathOperator{\sen}{sen}` en el preámbulo y luego utilizar el comando `\sen` en el cuerpo para obtener la función seno en español.
 
 Otro paquete que incorpora aún más símbolos es `amssymb`.
@@ -142,7 +143,7 @@ Otro paquete que incorpora aún más símbolos es `amssymb`.
 
 Para poner subíndices se utiliza el comando `_` y para superíndices `^`. Si el subíndice o superíndice afecta a más de un carácter, hay que ponerlos entre llaves.
 
-**Ejemplo**
+:::{#exm-subindices-superindices}
 
 ```latex
 % CUERPO
@@ -172,6 +173,7 @@ $$
 ## Salida
 ![](img/formulas/indices.png)
 :::
+:::
 
 Se pueden escribir subíndices de subíndices o superíndices de superíndices anidando los comandos.
 
@@ -181,7 +183,7 @@ Para escribir fracciones simples en línea se puede usar el operador aritmético
 
 A su vez, se pueden escribir más fracciones en el numerador o el denominador, anidando este comando. 
 
-**Ejemplo**
+:::{#exm-fracciones}
 
 ```latex
 % CUERPO
@@ -201,14 +203,15 @@ $$
 ## Salida
 ![](img/formulas/fracciones.png)
 :::
+:::
 
-## Sumatorios, productorios e integrales
+## Sumatorios, productorios, integrales y límites.
 
-Para escribir sumatorios se utiliza el comando `\sum_{sub}^{sup}`, donde $sub$ es el subíndice  que indica el inicio de la suma y $sup$ es el superíndice que indica el final de la suma. Si se quieren omitir los índices de inicio y final de la suma, basta con el comando `\sum`.
+Para escribir sumatorios se utiliza el comando `\sum_{sub}^{sup}`, donde `sub` es el subíndice  que indica el inicio de la suma y `sup` es el superíndice que indica el final de la suma. Si se quieren omitir los índices de inicio y final de la suma, basta con el comando `\sum`.
 
 De manera análoga, para escribir productorios se utiliza el comando `\prod_{sub}^{sup}`, donde `sub` es el subíndice  que indica el inicio del producto y `sup` es el superíndice que indica el final del producto. Si se quieren omitir los índices de inicio y final del producto, basta con el comando `\prod`.
 
-**Ejemplo**
+:::{#exm-sumatorio-productorio}
 
 ```latex
 % CUERPO
@@ -229,10 +232,11 @@ $$
 ## Salida
 ![](img/formulas/sumatorio.png)
 :::
+:::
 
-Del mismo modo, para escribir integrales definidas se utiliza el comando `\int_{sub}^{sup}`, donde $sub$ es el subíndice  que indica el inicio de la integral y $sup$ es el superíndice que indica el final de la integral. Para integrales indefinidas, basta con el comando `\int`.
+Del mismo modo, para escribir integrales definidas se utiliza el comando `\int_{sub}^{sup}`, donde `sub` es el subíndice  que indica el inicio de la integral y `sup` es el superíndice que indica el final de la integral. Para integrales indefinidas, basta con el comando `\int`.
 
-**Ejemplo**
+:::{#exm-integrales}
 
 ```latex
 % CUERPO
@@ -253,6 +257,27 @@ $$
 ## Salida
 ![](img/formulas/integral.png)
 :::
+:::
+
+Finalmente, para escribir límites se utiliza el comando `\lim_{sub}`, donde `sub` es el subíndice e indica las variables y el valor al que tienden.
+
+:::{#exm-limites}
+
+```latex
+% CUERPO
+\begin{document}
+Ejemplo de límite
+$$
+\lim_{h\to 0} \frac{f(a+h)-f(a)}{h}
+$$
+\end{document}
+```
+:::{.callout-note collapse="true" icon=false}
+## Salida
+![](img/formulas/limite.png)
+:::
+:::
+
 
 ## Sombreros
 
@@ -265,7 +290,7 @@ Es posible poner símbolos encima de otros símbolos, más conocidos como _sombr
 - `\vec{...}`: Flecha para un carácter.
 - `\overrightarrow{...}`: Flecha para varios caracteres.
 
-**Ejemplo**
+:::{#exm-sombreros}
 
 ```latex
 % CUERPO
@@ -278,12 +303,13 @@ Ejemplos de sombreros: $\overline{xy}$, $\hat{a}$, $\widehat{abc}$, $\vec{u}$.
 ## Salida
 ![](img/formulas/sombreros.png)
 :::
+:::
 
 ## Matrices
 
 Las matrices se crean de manera similar a como se crean las tablas (ver @sec-tablas), pero utilizando el entorno `array` en lugar del entorno `tabular`. Para encerrar la matriz entre paréntesis se pone el comando `\left(` antes del entorno y el comando `\right)` después.
 
-**Ejemplo**
+:::{#exm-matrices}
 
 ```latex
 % CUERPO
@@ -304,6 +330,7 @@ $$
 ## Salida
 ![](img/formulas/matriz.png)
 :::
+:::
 
 El paquete `amsmath` incorpora varios entornos más específicos para matrices donde no es necesario especificar el número de columnas, y tampoco los delimitadores:
 
@@ -314,7 +341,7 @@ El paquete `amsmath` incorpora varios entornos más específicos para matrices d
 - `bmatrix`: Matriz encerrada entre corchetes.
 - `Bmatrix`: Matriz encerrada entre llaves. 
 
-**Ejemplo**
+:::{#exm-entornos-matrices}
 
 ```latex
 % PREÁMBULO
@@ -337,6 +364,7 @@ $$
 ## Salida
 ![](img/formulas/determinante.png)
 :::
+:::
 
 ## Teoremas
 
@@ -348,7 +376,7 @@ Los enunciados definidos con este comando aparecen por defecto numerados para po
 
 Para demostraciones se puede utilizar el entorno `proof`.
 
-**Ejemplo**
+:::{#exm-teoremas}
 
 ```latex
 % PREÁMBULO
@@ -385,9 +413,10 @@ Es una consecuencia directa del teorema de Pitágoras.
 ## Salida
 ![](img/formulas/teoremas.png)
 :::
- 
+:::
+
 :::{.callout-tip}
 Se recomienda cargar los paquetes `amsmath`, `amssymb` y `amsthm` para documentos extensos o con muchas fórmulas matemáticas.
 :::
 
-[^2]: Para un listado más exhaustivo de los símbolos matemáticos de $\LaTeX$, puede consultarse el documento [The Great, Big List of $\LaTeX$ Symbols](https://www3.nd.edu/~nmark/UsefulFacts/LaTeX_symbols.pdf).
+[^2]: Para un listado más exhaustivo de los símbolos matemáticos de \LaTeX, puede consultarse el documento [The Great, Big List of \LaTeX Symbols](https://www3.nd.edu/~nmark/UsefulFacts/LaTeX_symbols.pdf).
